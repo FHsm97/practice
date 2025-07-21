@@ -22,3 +22,13 @@ let list=[1,2,3];
 
 console.log(list);
 
+
+let list2:string[]=['1','2','3']
+
+let list3:any[]=['fatemeh',25,true]
+list3[0]=254
+
+
+let tuple:[string,number]=['hashemi',654]
+// let tuple2:[string,number]=['hashemi',654,10] error
+

@@ -12,3 +12,8 @@ let student = false;
 let list = [1, 2, 3];
 // list=['1','2','3'] error
 console.log(list);
+let list2 = ['1', '2', '3'];
+let list3 = ['fatemeh', 25, true];
+list3[0] = 254;
+let tuple = ['hashemi', 654];
+// let tuple2:[string,number]=['hashemi',654,10] error
