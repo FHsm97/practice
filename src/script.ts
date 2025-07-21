@@ -120,4 +120,38 @@ sum6(2,3,5,7,10,12)
 
 
 
+//object as types
+let people:object={};
 
+
+let person:{
+    fullname:string,
+    age:(num:number)=>string
+}={
+    fullname:'fatemeh hashemi',
+    age:(num:number)=>{
+        return`age:${num}`
+
+    }
+}
+
+type MyObject={
+    fname:string,
+    lname:string,
+    age:(num:number)=>string
+}
+
+let person2:MyObject={
+    fname:'fatemeh',
+    lname:'hashemi',
+    age:(num:number)=>{
+        return`age:${num}`
+    }
+}
+
+type MyFunc = (num1: number, num2: number) => number;
+
+
+let minus:MyFunc=function(num1,num2){
+    return num1-num2
+};

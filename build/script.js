@@ -82,3 +82,21 @@ let sum6 = (x, ...numbers) => {
     console.log(x, numbers);
 };
 sum6(2, 3, 5, 7, 10, 12);
+//object as types
+let people = {};
+let person = {
+    fullname: 'fatemeh hashemi',
+    age: (num) => {
+        return `age:${num}`;
+    }
+};
+let person2 = {
+    fname: 'fatemeh',
+    lname: 'hashemi',
+    age: (num) => {
+        return `age:${num}`;
+    }
+};
+let minus = function (num1, num2) {
+    return num1 - num2;
+};
