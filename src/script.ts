@@ -52,3 +52,26 @@ function log(message:string):void {
     
 }
 log('hello world!')
+
+//enum
+enum Direction{
+    UP,
+    Down,
+    Left,
+    Right
+}
+console.log(Direction.Right);
+console.log(Direction);
+
+enum Direction1{
+    Up=20,
+    Down=30,
+    Left=40,
+    Right=50
+}
+console.log(Direction1);
+// console.log(Direction1.Left=100); error enums=>just readOnly
+let dir:Direction1=Direction1.Up;
+console.log(dir);
+
+
