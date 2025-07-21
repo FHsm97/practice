@@ -75,3 +75,49 @@ let dir:Direction1=Direction1.Up;
 console.log(dir);
 
 
+function sum(x:number,y:number):number {
+    return x+y;
+}
+
+console.log(sum(2,5));
+
+let jam=(a:number,b:number):number=>a+b
+console.log(jam(10,12));
+
+
+let sum2:(i:number,j:number)=>number //not arrow function,this is type function
+// sum2=function(i:string,j:string){
+//     return i+j;
+// } error=>parameter type not match
+
+sum2=function(i:number,j:number){
+    return i+j;
+}
+
+let sum3:(c:number,d:number)=>number=(c:number,d:number)=>c+d
+
+//defaualt parameter
+let sum4=(x:number=2,y:number=5)=>x+y
+console.log(sum4(10,15));
+console.log(sum4());
+//optional parameter
+let sum5=(x:number=2,y?:number)=>{
+    if(y)
+        return x+y;
+    return x;
+    
+}
+console.log(sum5());//return default x=2
+console.log(sum5(6));//return x=6
+console.log(sum5(5,7));//return x+y=12
+
+//rest operator
+let sum6=(x:number,...numbers:number[])=>{
+    console.log(x,numbers);
+    
+}
+sum6(2,3,5,7,10,12)
+
+
+
+
