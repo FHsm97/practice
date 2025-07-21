@@ -32,3 +32,23 @@ list3[0]=254
 let tuple:[string,number]=['hashemi',654]
 // let tuple2:[string,number]=['hashemi',654,10] error
 
+let num:number|null=22
+num=null
+
+
+let fname:string|undefined='fatemeh'
+fname=getString();
+
+function getString() {
+
+    return undefined;
+    
+}
+
+
+function log(message:string):void {
+    // return message; error
+    console.log(message);
+    
+}
+log('hello world!')

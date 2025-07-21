@@ -17,3 +17,15 @@ let list3 = ['fatemeh', 25, true];
 list3[0] = 254;
 let tuple = ['hashemi', 654];
 // let tuple2:[string,number]=['hashemi',654,10] error
+let num = 22;
+num = null;
+let fname = 'fatemeh';
+fname = getString();
+function getString() {
+    return undefined;
+}
+function log(message) {
+    // return message; error
+    console.log(message);
+}
+log('hello world!');
