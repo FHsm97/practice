@@ -42,14 +42,14 @@
 // function getString() {
 
 //     return undefined;
-    
+
 // }
 
 
 // function log(message:string):void {
 //     // return message; error
 //     console.log(message);
-    
+
 // }
 // log('hello world!')
 
@@ -105,7 +105,7 @@
 //     if(y)
 //         return x+y;
 //     return x;
-    
+
 // }
 // console.log(sum5());//return default x=2
 // console.log(sum5(6));//return x=6
@@ -114,7 +114,7 @@
 // //rest operator
 // let sum6=(x:number,...numbers:number[])=>{
 //     console.log(x,numbers);
-    
+
 // }
 // sum6(2,3,5,7,10,12)
 
@@ -157,51 +157,74 @@
 // };
 
 // //class properties
-class Car{
+class Car {
     // model='405' first way
-    private model:string //second way=> with constructor
-    public year:number
-    protected color:string 
-    constructor(model:string,year:number,color:string){
-        this.model=model
-        this.year=year
-        this.color=color
+    private model: string //second way=> with constructor
+    public year: number
+    protected color: string
+    constructor(model: string, year: number, color: string) {
+        this.model = model
+        this.year = year
+        this.color = color
     }
-    
-    sayHello(){
+
+    sayHello() {
         console.log('hello');
-        
+
     }
 }
 class IranKhodro extends Car {
-    run(){
+    run() {
         console.log(this.year);
         // console.log(this.model); error =>model is private
-        
+
     }
 }
 
-let car1=new Car('206',2012,'red')
+let car1 = new Car('206', 2012, 'red')
 console.log(car1);
 // console.log(car1.model); error=>model is private
 // console.log(car1.color); error=>color is protected and just use it in class and extends class
 
-class Person{
-    constructor(public name:string,protected id:number){}//second way for constructor
+class Person {
+    constructor(public name: string, protected id: number) { }//second way for constructor
 
-    set setID(theID:number){
-        this.id=theID
+    set setID(theID: number) {
+        this.id = theID
     }
-    get getID(){
+    get getID() {
         return this.id
     }
 }
 
-let fatemeh=new Person('fatemeh',123)
-fatemeh.setID=567
+let fatemeh = new Person('fatemeh', 123)
+fatemeh.setID = 567
 console.log(fatemeh);
 console.log(fatemeh.getID);
 
+
+
+abstract class Name {
+
+    abstract fullName(): string
+
+    name(): void {
+        console.log(this.fullName());
+
+    }
+
+}
+// let name1=new Name() error=> abstract classe can not use as object
+
+class Fatemeh extends Name {
+    fullName(): string {
+        return 'fatemeh hashemi'
+    }
+
+
+}
+let name1 = new Fatemeh()
+name1.name();
 
 
 

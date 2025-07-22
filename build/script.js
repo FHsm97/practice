@@ -144,3 +144,16 @@ let fatemeh = new Person('fatemeh', 123);
 fatemeh.setID = 567;
 console.log(fatemeh);
 console.log(fatemeh.getID);
+class Name {
+    name() {
+        console.log(this.fullName());
+    }
+}
+// let name1=new Name() error=> abstract classe can not use as object
+class Fatemeh extends Name {
+    fullName() {
+        return 'fatemeh hashemi';
+    }
+}
+let name1 = new Fatemeh();
+name1.name();
