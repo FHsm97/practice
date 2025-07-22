@@ -188,5 +188,20 @@ console.log(car1);
 
 class Person{
     constructor(public name:string,protected id:number){}//second way for constructor
+
+    set setID(theID:number){
+        this.id=theID
+    }
+    get getID(){
+        return this.id
+    }
 }
+
+let fatemeh=new Person('fatemeh',123)
+fatemeh.setID=567
+console.log(fatemeh);
+console.log(fatemeh.getID);
+
+
+
 

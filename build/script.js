@@ -133,4 +133,14 @@ class Person {
         this.name = name;
         this.id = id;
     } //second way for constructor
+    set setID(theID) {
+        this.id = theID;
+    }
+    get getID() {
+        return this.id;
+    }
 }
+let fatemeh = new Person('fatemeh', 123);
+fatemeh.setID = 567;
+console.log(fatemeh);
+console.log(fatemeh.getID);
