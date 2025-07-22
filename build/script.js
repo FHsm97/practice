@@ -109,11 +109,28 @@
 // };
 // //class properties
 class Car {
-    constructor(model, year) {
+    constructor(model, year, color) {
         this.model = model;
         this.year = year;
+        this.color = color;
+    }
+    sayHello() {
+        console.log('hello');
     }
 }
-let car1 = new Car('206', 2012);
+class IranKhodro extends Car {
+    run() {
+        console.log(this.year);
+        // console.log(this.model); error =>model is private
+    }
+}
+let car1 = new Car('206', 2012, 'red');
 console.log(car1);
-console.log(car1.model);
+// console.log(car1.model); error=>model is private
+// console.log(car1.color); error=>color is protected and just use it in class and extends class
+class Person {
+    constructor(name, id) {
+        this.name = name;
+        this.id = id;
+    } //second way for constructor
+}

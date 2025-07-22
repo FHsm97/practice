@@ -159,16 +159,34 @@
 // //class properties
 class Car{
     // model='405' first way
-    model:string //second way=> with constructor
-    year:number
-    constructor(model:string,year:number){
+    private model:string //second way=> with constructor
+    public year:number
+    protected color:string 
+    constructor(model:string,year:number,color:string){
         this.model=model
         this.year=year
-    } 
+        this.color=color
+    }
+    
+    sayHello(){
+        console.log('hello');
+        
+    }
+}
+class IranKhodro extends Car {
+    run(){
+        console.log(this.year);
+        // console.log(this.model); error =>model is private
+        
+    }
 }
 
-let car1=new Car('206',2012)
+let car1=new Car('206',2012,'red')
 console.log(car1);
-console.log(car1.model);
+// console.log(car1.model); error=>model is private
+// console.log(car1.color); error=>color is protected and just use it in class and extends class
 
+class Person{
+    constructor(public name:string,protected id:number){}//second way for constructor
+}
 
