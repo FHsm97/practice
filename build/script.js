@@ -1,102 +1,119 @@
 "use strict";
-let firstname = 'fatemeh';
-// firstname=12; error
-let lastname;
-lastname = 'hashemi';
-console.log(lastname);
-lastname = 55;
-console.log(lastname);
-let age = 25;
-let student = false;
-// let height:string=162; error
-let list = [1, 2, 3];
-// list=['1','2','3'] error
-console.log(list);
-let list2 = ['1', '2', '3'];
-let list3 = ['fatemeh', 25, true];
-list3[0] = 254;
-let tuple = ['hashemi', 654];
-// let tuple2:[string,number]=['hashemi',654,10] error
-let num = 22;
-num = null;
-let fname = 'fatemeh';
-fname = getString();
-function getString() {
-    return undefined;
-}
-function log(message) {
-    // return message; error
-    console.log(message);
-}
-log('hello world!');
-//enum
-var Direction;
-(function (Direction) {
-    Direction[Direction["UP"] = 0] = "UP";
-    Direction[Direction["Down"] = 1] = "Down";
-    Direction[Direction["Left"] = 2] = "Left";
-    Direction[Direction["Right"] = 3] = "Right";
-})(Direction || (Direction = {}));
-console.log(Direction.Right);
-console.log(Direction);
-var Direction1;
-(function (Direction1) {
-    Direction1[Direction1["Up"] = 20] = "Up";
-    Direction1[Direction1["Down"] = 30] = "Down";
-    Direction1[Direction1["Left"] = 40] = "Left";
-    Direction1[Direction1["Right"] = 50] = "Right";
-})(Direction1 || (Direction1 = {}));
-console.log(Direction1);
-// console.log(Direction1.Left=100); error enums=>just readOnly
-let dir = Direction1.Up;
-console.log(dir);
-function sum(x, y) {
-    return x + y;
-}
-console.log(sum(2, 5));
-let jam = (a, b) => a + b;
-console.log(jam(10, 12));
-let sum2; //not arrow function,this is type function
-// sum2=function(i:string,j:string){
+// let firstname='fatemeh';
+// // firstname=12; error
+// let lastname;
+// lastname='hashemi';
+// console.log(lastname);
+// lastname=55;
+// console.log(lastname);
+// let age:number=25;
+// let student:boolean=false;
+// // let height:string=162; error
+// let list=[1,2,3];
+// // list=['1','2','3'] error
+// console.log(list);
+// let list2:string[]=['1','2','3']
+// let list3:any[]=['fatemeh',25,true]
+// list3[0]=254
+// let tuple:[string,number]=['hashemi',654]
+// // let tuple2:[string,number]=['hashemi',654,10] error
+// let num:number|null=22
+// num=null
+// let fname:string|undefined='fatemeh'
+// fname=getString();
+// function getString() {
+//     return undefined;
+// }
+// function log(message:string):void {
+//     // return message; error
+//     console.log(message);
+// }
+// log('hello world!')
+// //enum
+// enum Direction{
+//     UP,
+//     Down,
+//     Left,
+//     Right
+// }
+// console.log(Direction.Right);
+// console.log(Direction);
+// enum Direction1{
+//     Up=20,
+//     Down=30,
+//     Left=40,
+//     Right=50
+// }
+// console.log(Direction1);
+// // console.log(Direction1.Left=100); error enums=>just readOnly
+// let dir:Direction1=Direction1.Up;
+// console.log(dir);
+// function sum(x:number,y:number):number {
+//     return x+y;
+// }
+// console.log(sum(2,5));
+// let jam=(a:number,b:number):number=>a+b
+// console.log(jam(10,12));
+// let sum2:(i:number,j:number)=>number //not arrow function,this is type function
+// // sum2=function(i:string,j:string){
+// //     return i+j;
+// // } error=>parameter type not match
+// sum2=function(i:number,j:number){
 //     return i+j;
-// } error=>parameter type not match
-sum2 = function (i, j) {
-    return i + j;
-};
-let sum3 = (c, d) => c + d;
-//defaualt parameter
-let sum4 = (x = 2, y = 5) => x + y;
-console.log(sum4(10, 15));
-console.log(sum4());
-//optional parameter
-let sum5 = (x = 2, y) => {
-    if (y)
-        return x + y;
-    return x;
-};
-console.log(sum5()); //return default x=2
-console.log(sum5(6)); //return x=6
-console.log(sum5(5, 7)); //return x+y=12
-//rest operator
-let sum6 = (x, ...numbers) => {
-    console.log(x, numbers);
-};
-sum6(2, 3, 5, 7, 10, 12);
-//object as types
-let people = {};
-let person = {
-    fullname: 'fatemeh hashemi',
-    age: (num) => {
-        return `age:${num}`;
+// }
+// let sum3:(c:number,d:number)=>number=(c:number,d:number)=>c+d
+// //defaualt parameter
+// let sum4=(x:number=2,y:number=5)=>x+y
+// console.log(sum4(10,15));
+// console.log(sum4());
+// //optional parameter
+// let sum5=(x:number=2,y?:number)=>{
+//     if(y)
+//         return x+y;
+//     return x;
+// }
+// console.log(sum5());//return default x=2
+// console.log(sum5(6));//return x=6
+// console.log(sum5(5,7));//return x+y=12
+// //rest operator
+// let sum6=(x:number,...numbers:number[])=>{
+//     console.log(x,numbers);
+// }
+// sum6(2,3,5,7,10,12)
+// //object as types
+// let people:object={};
+// let person:{
+//     fullname:string,
+//     age:(num:number)=>string
+// }={
+//     fullname:'fatemeh hashemi',
+//     age:(num:number)=>{
+//         return`age:${num}`
+//     }
+// }
+// type MyObject={
+//     fname:string,
+//     lname:string,
+//     age:(num:number)=>string
+// }
+// let person2:MyObject={
+//     fname:'fatemeh',
+//     lname:'hashemi',
+//     age:(num:number)=>{
+//         return`age:${num}`
+//     }
+// }
+// type MyFunc = (num1: number, num2: number) => number;
+// let minus:MyFunc=function(num1,num2){
+//     return num1-num2
+// };
+// //class properties
+class Car {
+    constructor(model, year) {
+        this.model = model;
+        this.year = year;
     }
-};
-let person2 = {
-    fname: 'fatemeh',
-    lname: 'hashemi',
-    age: (num) => {
-        return `age:${num}`;
-    }
-};
-let minus = function (num1, num2) {
-    return num1 - num2;
-};
+}
+let car1 = new Car('206', 2012);
+console.log(car1);
+console.log(car1.model);
