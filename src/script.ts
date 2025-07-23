@@ -228,3 +228,27 @@ name1.name();
 
 
 
+//static&readonly
+class Hello{
+    static text:string;
+    readonly description:string;
+
+    constructor(text:string,description:string){
+        Hello.text=text;
+        this.description=description;
+    }
+    // changeDescription(){
+    //     this.description='error test'
+    // }  readonly property can not change with metod
+
+}
+
+Hello.text='hello'
+console.log(Hello.text);
+
+let hello=new Hello('hi','readonly test')
+// hello.description='error test' error
+console.log(hello.description);
+
+
+

@@ -157,3 +157,15 @@ class Fatemeh extends Name {
 }
 let name1 = new Fatemeh();
 name1.name();
+//static&readonly
+class Hello {
+    constructor(text, description) {
+        Hello.text = text;
+        this.description = description;
+    }
+}
+Hello.text = 'hello';
+console.log(Hello.text);
+let hello = new Hello('hi', 'readonly test');
+// hello.description='error test' error
+console.log(hello.description);
