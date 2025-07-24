@@ -252,3 +252,22 @@ console.log(hello.description);
 
 
 
+//singleton design pattern
+
+ class Machine{
+    private static instance:Machine
+
+    private constructor(){}
+
+    public static getInstance():Machine{
+        if(!Machine.instance)
+            Machine.instance=new Machine();
+        return Machine.instance;
+    }
+ }
+
+ let machine1=Machine.getInstance() //create object
+//  let machine2=new Machine() error=>private constructor do not let create object with 'new'
+let machine2=Machine.getInstance()
+
+console.log(machine1==machine2);

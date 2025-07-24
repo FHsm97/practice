@@ -169,3 +169,16 @@ console.log(Hello.text);
 let hello = new Hello('hi', 'readonly test');
 // hello.description='error test' error
 console.log(hello.description);
+//singleton design pattern
+class Machine {
+    constructor() { }
+    static getInstance() {
+        if (!Machine.instance)
+            Machine.instance = new Machine();
+        return Machine.instance;
+    }
+}
+let machine1 = Machine.getInstance(); //create object
+//  let machine2=new Machine() error=>private constructor do not let create object with 'new'
+let machine2 = Machine.getInstance();
+console.log(machine1 == machine2);
