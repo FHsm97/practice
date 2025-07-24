@@ -296,3 +296,16 @@ function print(lable:MyLable){
 }
 let print1={mySize:30,myLable:'size 30'}
 print(print1)
+
+
+//interface as funcType
+interface searchFunc{
+    (source:string,subString:string):boolean
+}
+
+// type searchFunc=(source:string,subString:string)=>boolean type=interface but better to use interface
+
+let mySearch:searchFunc=(source:string,subString:string)=>{
+    let result=source.search(subString)
+    return result>-1
+}
