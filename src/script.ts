@@ -271,3 +271,28 @@ console.log(hello.description);
 let machine2=Machine.getInstance()
 
 console.log(machine1==machine2);
+
+
+//interface
+
+function printLable(labledObj:any){
+    console.log(labledObj.lable);
+}
+
+let myObj={size:10,lable:"size 10"}
+printLable(myObj);
+
+let myObj2={size:20,myLable:"size 20"}
+printLable(myObj2)//undefined returned
+
+//use interface
+interface MyLable{
+    mySize?:number //mySize mitone gharar begire mitone nagire !!pishnahad nemish!!
+    myLable:string
+}
+
+function print(lable:MyLable){
+    console.log(lable.myLable);    
+}
+let print1={mySize:30,myLable:'size 30'}
+print(print1)
