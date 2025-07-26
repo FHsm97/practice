@@ -311,41 +311,57 @@
 // }
 
 //interface as class type
-interface Person{
-    firstName:string
-    lastName:string
-    age:number
-    fullName():string
-}
+// interface Person{
+//     firstName:string
+//     lastName:string
+//     age:number
+//     fullName():string
+// }
 
-class Fatemeh implements Person{
-    constructor(public firstName:string,public lastName:string,public age:number){}
+// class Fatemeh implements Person{
+//     constructor(public firstName:string,public lastName:string,public age:number){}
 
-    fullName(): string {
-        return this.firstName+' '+this.lastName;
-    }
+//     fullName(): string {
+//         return this.firstName+' '+this.lastName;
+//     }
     
+// }
+
+// class Zahra implements Person{
+
+//     constructor(public firstName:string,public lastName:string,public age:number){}
+
+//     fullName(): string {
+//         return this.firstName+' '+this.lastName;
+//     }
+
+// }
+
+// class Akram implements Person{
+
+//     constructor(public firstName:string,public lastName:string,public age:number){}
+
+//     fullName(): string {
+//         return this.firstName+' '+this.lastName;
+//     }
+
+// }
+
+// let user:Person=new Zahra('zahra','hashemi',30)
+// console.log(user.fullName());
+
+//generics
+
+function logData<T>(data:T):T{
+    return data;
 }
 
-class Zahra implements Person{
+console.log(logData<number>(1234));
+console.log(logData<string>('hello'));
 
-    constructor(public firstName:string,public lastName:string,public age:number){}
-
-    fullName(): string {
-        return this.firstName+' '+this.lastName;
-    }
-
+function listData<T>(list:T[]):T[]{
+    return list;
 }
 
-class Akram implements Person{
-
-    constructor(public firstName:string,public lastName:string,public age:number){}
-
-    fullName(): string {
-        return this.firstName+' '+this.lastName;
-    }
-
-}
-
-let user:Person=new Zahra('zahra','hashemi',30)
-console.log(user.fullName());
+console.log(listData([1,'5',false]));
+console.log(listData<string>(['1','j','k','gi']));
