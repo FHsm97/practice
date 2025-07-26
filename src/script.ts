@@ -156,156 +156,196 @@
 //     return num1-num2
 // };
 
-// //class properties
-class Car {
-    // model='405' first way
-    private model: string //second way=> with constructor
-    public year: number
-    protected color: string
-    constructor(model: string, year: number, color: string) {
-        this.model = model
-        this.year = year
-        this.color = color
-    }
+// // class properties
+// class Car {
+//     // model='405' first way
+//     private model: string //second way=> with constructor
+//     public year: number
+//     protected color: string
+//     constructor(model: string, year: number, color: string) {
+//         this.model = model
+//         this.year = year
+//         this.color = color
+//     }
 
-    sayHello() {
-        console.log('hello');
+//     sayHello() {
+//         console.log('hello');
 
-    }
+//     }
+// }
+// class IranKhodro extends Car {
+//     run() {
+//         console.log(this.year);
+//         // console.log(this.model); error =>model is private
+
+//     }
+// }
+
+// let car1 = new Car('206', 2012, 'red')
+// console.log(car1);
+// // console.log(car1.model); error=>model is private
+// // console.log(car1.color); error=>color is protected and just use it in class and extends class
+
+// class Person {
+//     constructor(public name: string, protected id: number) { }//second way for constructor
+
+//     set setID(theID: number) {
+//         this.id = theID
+//     }
+//     get getID() {
+//         return this.id
+//     }
+// }
+
+// let fatemeh = new Person('fatemeh', 123)
+// fatemeh.setID = 567
+// console.log(fatemeh);
+// console.log(fatemeh.getID);
+
+
+
+// abstract class Name {
+
+//     abstract fullName(): string
+
+//     name(): void {
+//         console.log(this.fullName());
+
+//     }
+
+// }
+// // let name1=new Name() error=> abstract classe can not use as object
+
+// class Fatemeh extends Name {
+//     fullName(): string {
+//         return 'fatemeh hashemi'
+//     }
+
+
+// }
+// let name1 = new Fatemeh()
+// name1.name();
+
+
+
+// //static&readonly
+// class Hello{
+//     static text:string;
+//     readonly description:string;
+
+//     constructor(text:string,description:string){
+//         Hello.text=text;
+//         this.description=description;
+//     }
+//     // changeDescription(){
+//     //     this.description='error test'
+//     // }  readonly property can not change with metod
+
+// }
+
+// Hello.text='hello'
+// console.log(Hello.text);
+
+// let hello=new Hello('hi','readonly test')
+// // hello.description='error test' error
+// console.log(hello.description);
+
+
+
+// //singleton design pattern
+
+//  class Machine{
+//     private static instance:Machine
+
+//     private constructor(){}
+
+//     public static getInstance():Machine{
+//         if(!Machine.instance)
+//             Machine.instance=new Machine();
+//         return Machine.instance;
+//     }
+//  }
+
+//  let machine1=Machine.getInstance() //create object
+// //  let machine2=new Machine() error=>private constructor do not let create object with 'new'
+// let machine2=Machine.getInstance()
+
+// console.log(machine1==machine2);
+
+
+// //interface
+
+// function printLable(labledObj:any){
+//     console.log(labledObj.lable);
+// }
+
+// let myObj={size:10,lable:"size 10"}
+// printLable(myObj);
+
+// let myObj2={size:20,myLable:"size 20"}
+// printLable(myObj2)//undefined returned
+
+// //use interface
+// interface MyLable{
+//     mySize?:number //mySize mitone gharar begire mitone nagire !!pishnahad nemish!!
+//     myLable:string
+// }
+
+// function print(lable:MyLable){
+//     console.log(lable.myLable);    
+// }
+// let print1={mySize:30,myLable:'size 30'}
+// print(print1)
+
+
+// //interface as funcType
+// interface searchFunc{
+//     (source:string,subString:string):boolean
+// }
+
+// // type searchFunc=(source:string,subString:string)=>boolean type=interface but better to use interface
+
+// let mySearch:searchFunc=(source:string,subString:string)=>{
+//     let result=source.search(subString)
+//     return result>-1
+// }
+
+//interface as class type
+interface Person{
+    firstName:string
+    lastName:string
+    age:number
+    fullName():string
 }
-class IranKhodro extends Car {
-    run() {
-        console.log(this.year);
-        // console.log(this.model); error =>model is private
 
-    }
-}
+class Fatemeh implements Person{
+    constructor(public firstName:string,public lastName:string,public age:number){}
 
-let car1 = new Car('206', 2012, 'red')
-console.log(car1);
-// console.log(car1.model); error=>model is private
-// console.log(car1.color); error=>color is protected and just use it in class and extends class
-
-class Person {
-    constructor(public name: string, protected id: number) { }//second way for constructor
-
-    set setID(theID: number) {
-        this.id = theID
-    }
-    get getID() {
-        return this.id
-    }
-}
-
-let fatemeh = new Person('fatemeh', 123)
-fatemeh.setID = 567
-console.log(fatemeh);
-console.log(fatemeh.getID);
-
-
-
-abstract class Name {
-
-    abstract fullName(): string
-
-    name(): void {
-        console.log(this.fullName());
-
-    }
-
-}
-// let name1=new Name() error=> abstract classe can not use as object
-
-class Fatemeh extends Name {
     fullName(): string {
-        return 'fatemeh hashemi'
+        return this.firstName+' '+this.lastName;
+    }
+    
+}
+
+class Zahra implements Person{
+
+    constructor(public firstName:string,public lastName:string,public age:number){}
+
+    fullName(): string {
+        return this.firstName+' '+this.lastName;
     }
 
-
 }
-let name1 = new Fatemeh()
-name1.name();
 
+class Akram implements Person{
 
+    constructor(public firstName:string,public lastName:string,public age:number){}
 
-//static&readonly
-class Hello{
-    static text:string;
-    readonly description:string;
-
-    constructor(text:string,description:string){
-        Hello.text=text;
-        this.description=description;
+    fullName(): string {
+        return this.firstName+' '+this.lastName;
     }
-    // changeDescription(){
-    //     this.description='error test'
-    // }  readonly property can not change with metod
 
 }
 
-Hello.text='hello'
-console.log(Hello.text);
-
-let hello=new Hello('hi','readonly test')
-// hello.description='error test' error
-console.log(hello.description);
-
-
-
-//singleton design pattern
-
- class Machine{
-    private static instance:Machine
-
-    private constructor(){}
-
-    public static getInstance():Machine{
-        if(!Machine.instance)
-            Machine.instance=new Machine();
-        return Machine.instance;
-    }
- }
-
- let machine1=Machine.getInstance() //create object
-//  let machine2=new Machine() error=>private constructor do not let create object with 'new'
-let machine2=Machine.getInstance()
-
-console.log(machine1==machine2);
-
-
-//interface
-
-function printLable(labledObj:any){
-    console.log(labledObj.lable);
-}
-
-let myObj={size:10,lable:"size 10"}
-printLable(myObj);
-
-let myObj2={size:20,myLable:"size 20"}
-printLable(myObj2)//undefined returned
-
-//use interface
-interface MyLable{
-    mySize?:number //mySize mitone gharar begire mitone nagire !!pishnahad nemish!!
-    myLable:string
-}
-
-function print(lable:MyLable){
-    console.log(lable.myLable);    
-}
-let print1={mySize:30,myLable:'size 30'}
-print(print1)
-
-
-//interface as funcType
-interface searchFunc{
-    (source:string,subString:string):boolean
-}
-
-// type searchFunc=(source:string,subString:string)=>boolean type=interface but better to use interface
-
-let mySearch:searchFunc=(source:string,subString:string)=>{
-    let result=source.search(subString)
-    return result>-1
-}
+let user:Person=new Zahra('zahra','hashemi',30)
+console.log(user.fullName());
