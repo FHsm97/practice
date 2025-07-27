@@ -244,34 +244,75 @@
 // }
 // let user:Person=new Zahra('zahra','hashemi',30)
 // console.log(user.fullName());
-//generics
-function logData(data) {
-    return data;
+//// generics
+// function logData<T>(data:T):T{
+//     return data;
+// }
+// console.log(logData<number>(1234));
+// console.log(logData<string>('hello'));
+// function listData<T>(list:T[]):T[]{
+//     return list;
+// }
+// console.log(listData([1,'5',false]));
+// console.log(listData<string>(['1','j','k','gi']));
+// //generics as types
+// // let myLogFunction:(data:number)=>number;
+// // myLogFunction=logData; use type function
+// //use generic function instant of type function
+// let myLogFunction:<B>(data:B)=>B;
+// myLogFunction=function<A>(data:A):A{
+//     return data;
+// }
+// type myType=<T>(myData:T)=>T;
+// let myLogFunc:myType;
+// myLogFunc=function<T>(myData:T):T{
+//     return myData;
+// }
+// //interface first way
+// interface myLogFuncInterface{
+//     <T>(myLogData:T):T
+// }
+// let myLogDataFunc:myLogFuncInterface;
+// myLogDataFunc=function<T>(myLogData:T):T{
+//     return myLogData;
+// }
+// //interface second way
+// interface myNameInterface<T>{
+//     (name:T):T
+// }
+// let myName:myNameInterface<string>
+// myName=function(name:string):string{
+//     return name;
+// }
+//generic in classes
+class MyArray {
+    constructor(data) {
+        this.data = data;
+    }
+    addItem(item) {
+        this.data.push(item);
+    }
+    getItem(index) {
+        return this.data[index];
+    }
 }
-console.log(logData(1234));
-console.log(logData('hello'));
-function listData(list) {
-    return list;
+let list = new MyArray([1, 2, 3]);
+list.addItem(5);
+console.log(list.data);
+let list2 = new MyArray(['f', '3', '32']);
+class ArrayList {
+    constructor(array, array2) {
+        this.array = array;
+        this.array2 = array2;
+    }
+    addItemArray(itemArray) {
+        this.array.push(itemArray);
+    }
+    showArray() {
+        return this.array2;
+    }
 }
-console.log(listData([1, '5', false]));
-console.log(listData(['1', 'j', 'k', 'gi']));
-//generics as types
-// let myLogFunction:(data:number)=>number;
-// myLogFunction=logData; use type function
-//use generic function instant of type function
-let myLogFunction;
-myLogFunction = function (data) {
-    return data;
-};
-let myLogFunc;
-myLogFunc = function (myData) {
-    return myData;
-};
-let myLogDataFunc;
-myLogDataFunc = function (myLogData) {
-    return myLogData;
-};
-let myName;
-myName = function (name) {
-    return name;
-};
+// let arrayList=new ArrayList<string>(['1','2']) error
+let arrayList = new ArrayList([1, 5, 8], ['name', '24', 'hi']);
+console.log(arrayList.array);
+console.log(arrayList.showArray());
