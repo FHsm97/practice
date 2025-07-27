@@ -255,3 +255,23 @@ function listData(list) {
 }
 console.log(listData([1, '5', false]));
 console.log(listData(['1', 'j', 'k', 'gi']));
+//generics as types
+// let myLogFunction:(data:number)=>number;
+// myLogFunction=logData; use type function
+//use generic function instant of type function
+let myLogFunction;
+myLogFunction = function (data) {
+    return data;
+};
+let myLogFunc;
+myLogFunc = function (myData) {
+    return myData;
+};
+let myLogDataFunc;
+myLogDataFunc = function (myLogData) {
+    return myLogData;
+};
+let myName;
+myName = function (name) {
+    return name;
+};
